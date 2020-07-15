@@ -11,6 +11,7 @@ import{Button,Layout} from "ant-design-vue";
 import 'ant-design-vue/dist/antd.less';
 // import{Layout} from "ant-design-vue"
 // import vueConfig from "../vue.config";
+import axios from 'axios';
 
 Vue.config.productionTip = false;
 
@@ -20,6 +21,8 @@ Vue.use(Antd);
 Vue.use(Layout);
 Vue.use(Button);
 Vue.use(RenderRouterView);
+
+Vue.prototype.$axios = axios;
 
 new Vue({
   router,

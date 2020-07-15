@@ -13,8 +13,8 @@
         <!-- <a-button key="2">
           Operation
         </a-button> -->
-        <a-button key="1" type="primary" @click="cimsInputClick">
-          退出
+        <a-button key="1" type="primary" @click="reClick">
+          登陆
         </a-button>
       </template>
       <a-descriptions size="small" :column="3">
@@ -41,13 +41,17 @@
 
 
 <script>
+import axios from 'axios'
 export default {
     data(){
         return
     },
    methods :{
-       cimsInputClick () {
-      window.location.href = 'https:\\www.mscims.com'
+       reClick () {
+      // this.$axios.get('http://saya.signalping.com/webapi/user/github_login')
+      // .then((res)=>{console.log(res)})
+      // .catch(error => console.log(error))
+      window.open('http://saya.signalping.com/webapi/user/github_login')
     }
    }
 
