@@ -1,5 +1,6 @@
 <template>
-<div> miaomiao
+<div> ahah 
+    
     <router-view></router-view>
 </div>
   
