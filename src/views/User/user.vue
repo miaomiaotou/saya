@@ -1,6 +1,7 @@
 <template>
   <div>
      <router-view></router-view>
+     user info
     
   </div>
 </template>
