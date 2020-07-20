@@ -6,6 +6,7 @@ import Userlayout from "../layouts/Userlayout";
 import register from "../layouts/Userlayout";
 import user from "../views/User/user";
 import About from "../views/About";
+import update from "../views/User/update";
 
 
 import Home from "../views/Home.vue";
@@ -61,6 +62,12 @@ const routes = [
     name: "register",
     component: () =>
     import(/* webpackChunkName: "about" */ "../views/User/register")
+  },
+  {
+    path: '/update',
+    name: "update",
+    component: () =>
+    import(/* webpackChunkName: "about" */ "../views/User/update")
   },
   {
     path: '/about',
