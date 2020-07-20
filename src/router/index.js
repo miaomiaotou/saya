@@ -40,15 +40,19 @@ const routes = [
   //   }
   // ]
   },
+
   {
     path: '/',
+    // hideinmenu:true,标志位
     name: "Baselayout",
     component: () =>
     import(/* webpackChunkName: "about" */ "../layouts/Baselayout")
   },
+ 
   {
     path: '/user',
     name: "user",
+    // meta:{icon:"user",title :"仪表盘"},添加图标
     component: () =>
     import(/* webpackChunkName: "about" */ "../views/User/user")
   },

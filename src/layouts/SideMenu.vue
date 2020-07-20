@@ -3,8 +3,9 @@
       <div class="logo" />
       <a-menu theme="dark" :default-selected-keys="['1']" mode="inline">
         <a-menu-item key="1">
+          <router-link to="/user"></router-link>
           <a-icon type="pie-chart" />
-          <span>帮助</span>
+          <span>我的</span>
         </a-menu-item>
         <a-menu-item key="2">
           <a-icon type="desktop" />
@@ -29,15 +30,26 @@
 <script>
 export default {
 data() {
+    const menudata = this.getmenuData(this.$router.options.routes)
     return {
       collapsed: false,
+      list:[],
+      menudata,
     };
   },
   methods: {
     toggleCollapsed() {
       this.collapsed = !this.collapsed;
     },
-  },
+    // getmenuData(routes){
+    //   const menudata=[]
+    //   newitem = this.getmenuData
+    //   menudata.push()
+      
+
+    // }
+
+  }
 }
 </script>
 

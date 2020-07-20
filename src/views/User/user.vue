@@ -1,13 +1,19 @@
 <template>
   <div>
+    <Baselayout></Baselayout>
      <router-view></router-view>
-     user info
+     
     
   </div>
 </template>
 
 <script>
+import Baselayout from "../../layouts/Baselayout";
 export default {
+  name: "Baselayout",
+    components: {
+      Baselayout
+      }
 
 }
 </script>

@@ -12,6 +12,7 @@ import 'ant-design-vue/dist/antd.less';
 // import{Layout} from "ant-design-vue"
 // import vueConfig from "../vue.config";
 import axios from 'axios';
+import Baselayout from '../src/layouts/Baselayout';
 
 Vue.config.productionTip = false;
 
@@ -21,12 +22,13 @@ Vue.use(Antd);
 Vue.use(Layout);
 Vue.use(Button);
 Vue.use(RenderRouterView);
-
+Vue.use(Baselayout);
 Vue.prototype.$axios = axios;
 
 new Vue({
   router,
   store,
+  Baselayout,
   // Layout,
   RenderRouterView,
   render: h => h(App)
