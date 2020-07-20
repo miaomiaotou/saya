@@ -10,7 +10,7 @@
 <script>
 import Baselayout from "../../layouts/Baselayout";
 export default {
-  name: "Baselayout",
+  name: "user",
     components: {
       Baselayout
       }

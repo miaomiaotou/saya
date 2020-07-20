@@ -4,8 +4,9 @@
      <div style="background-color: #F5F5F5; padding: 24px;">
     <a-page-header
       :ghost="false"
-      title="用户"
-      sub-title="This is a subtitle"
+     
+      sub-title="用户信息"
+      :data="userlist"
      
     >
       <template slot="extra">
@@ -14,18 +15,17 @@
           Operation
         </a-button> -->
         <a-button key="1" type="primary" @click="reClick">
-          登陆
+          登录
         </a-button>
       </template>
-      <a-descriptions size="small" :column="3">
-        <a-descriptions-item label="Created">
-          Lili Qu
+      
+      <a-descriptions size="small" :column="3"  :data="userlist">
+        <a-descriptions-item label="昵称" prop="nickname">{{nickname}}</a-descriptions-item>
+        <a-descriptions-item label="用户id" prop ="uid">
+         {{uid}}
         </a-descriptions-item>
-        <a-descriptions-item label="Association">
-          <a>421421</a>
-        </a-descriptions-item>
-        <a-descriptions-item label="Creation Time">
-          2017-01-10
+        <a-descriptions-item label="用户身份" prop ="cred">
+         {{cred}}
         </a-descriptions-item>
         <a-descriptions-item label="Effective Time">
           2017-10-10
@@ -41,18 +41,65 @@
 
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 export default {
     data(){
-        return
+        return{
+          // 获取用户列表的参数
+          userinfo:{
+            name:'miaomiaotou',
+            page:1
+          },
+          userlist :{
+
+          },
+          success:'',
+        }
+
+
     },
+    created(){
+      this.getuserlist()
+
+      },
+
+    
    methods :{
        reClick () {
       // this.$axios.get('http://saya.signalping.com/webapi/user/github_login')
       // .then((res)=>{console.log(res)})
       // .catch(error => console.log(error))
-      window.open('http://saya.signalping.com/webapi/user/github_login')
+    //   window.open('http://saya.signalping.com/webapi/user/github_login?redirect_uri=http://localhost:8080')
+       window.location.href = "http://saya.signalping.com/webapi/user/github_login?redirect_uri=http://localhost:8080"
+    },
+    getuserlist(){
+      this.$axios.get(
+        'http://saya.signalping.com/webapi/user/profile'
+        // {
+        //   params:{
+        //     this.userinfo
+
+        //   }
+        // },
+      ).then((res)=>{
+        this.userlist=res.data.data;
+        this.nickname = res.data.data.nickname;
+        this.cred = res.data.data.cred;
+        this.uid = res.data.data.uid;
+        this.githubid = res.data.data.github_id;
+        this.icon = res.data.data.avatar;
+        this.createtime= res.data.data.create_time;
+        this.update_time = res.data.data.update_time;
+
+
+
+        console.log(res)
+
+      }).catch(error => console.log(error))
     }
+
+
    }
 
 
