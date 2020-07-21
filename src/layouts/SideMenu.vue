@@ -8,6 +8,7 @@
           <span>我的</span>
         </a-menu-item>
         <a-menu-item key="2">
+           <router-link to="/user"></router-link>
           <a-icon type="desktop" />
           <span>上传</span>
         </a-menu-item>
@@ -30,11 +31,11 @@
 <script>
 export default {
 data() {
-    const menudata = this.getmenuData(this.$router.options.routes)
+    // const menudata = this.getmenuData(this.$router.options.routes)
     return {
       collapsed: false,
       list:[],
-      menudata,
+      // menudata,
     };
   },
   methods: {
