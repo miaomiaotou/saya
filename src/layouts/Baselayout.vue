@@ -11,7 +11,7 @@
       </a-layout-header>
       <a-layout-content style="margin: 0 16px">
         <!-- router-view里是路由匹配过来的组件 -->
-        <router-view></router-view>
+      <!-- <update/> -->
       </a-layout-content>
       <a-layout-footer style="text-align: center">
         <Footer/>
@@ -23,9 +23,13 @@
 
 <script>
 import Footer from"./Footer";
+
 import Header from "./Header";
-import SideMenu from "./SideMenu";
+ import SideMenu from "./SideMenu";
+ import update from "../views/User/update";
+ 
 export default {
+  name:"Baselayout",
   data() {
     return {
       collapsed: false,
@@ -34,7 +38,8 @@ export default {
   components:{
         Header,
         Footer,
-        SideMenu
+        SideMenu,
+        update,
     }
    
 };

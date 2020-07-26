@@ -9,10 +9,14 @@
 
 <script>
 import Baselayout from "../../layouts/Baselayout";
+import SideMenu from "../../layouts/SideMenu";
 export default {
   name: "user",
     components: {
-      Baselayout
+      Baselayout,
+      SideMenu,
+
+
       }
 
 }

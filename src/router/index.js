@@ -47,7 +47,11 @@ const routes = [
     // hideinmenu:true,标志位
     name: "Baselayout",
     component: () =>
-    import(/* webpackChunkName: "about" */ "../layouts/Baselayout")
+    import(/* webpackChunkName: "about" */ "../layouts/Baselayout"),
+  //   children:[{path: '/update',
+  //              component: () =>
+  //              import(/* webpackChunkName: "about" */ "../views/User/update"),
+  //             }]
   },
  
   {

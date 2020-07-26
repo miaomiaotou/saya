@@ -8,6 +8,7 @@
           <span>我的</span>
         </a-menu-item>
         <a-menu-item key="2">
+          <router-link to="/update"></router-link>
           <a-icon type="desktop" />
           <span>上传</span>
         </a-menu-item>
@@ -30,12 +31,13 @@
 <script>
 export default {
 data() {
-    const menudata = this.getmenuData(this.$router.options.routes)
-    return {
-      collapsed: false,
-      list:[],
-      menudata,
-    };
+  return{}
+    // const menudata = this.getmenuData(this.$router.options.routes)
+    // return {
+    //   collapsed: false,
+    //   list:[],
+    //   menudata,
+    // };
   },
   methods: {
     toggleCollapsed() {
@@ -47,10 +49,10 @@ data() {
     //   menudata.push()
       
 
-    // }
+    }
 
   }
-}
+
 </script>
 
 <style>
