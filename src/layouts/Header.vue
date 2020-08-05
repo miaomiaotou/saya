@@ -71,7 +71,9 @@ export default {
       // .then((res)=>{console.log(res)})
       // .catch(error => console.log(error))
     //   window.open('http://saya.signalping.com/webapi/user/github_login?redirect_uri=http://localhost:8080')
-       window.location.href = "http://saya.signalping.com/webapi/user/github_login?redirect_uri=http://localhost:8080"
+       window.location.href = "http://saya.signalping.com/webapi/user/github_login?redirect_uri=http://localhost:8080",
+       axios.defaults.withCredentials = true;
+
     },
     getuserlist(){
       this.$axios.get(

@@ -1,10 +1,7 @@
 <template>
   <div>
-    <Baselayout></Baselayout>
-    
-     <router-view></router-view>
-     
-    
+    <!-- <Baselayout></Baselayout> -->
+   
   </div>
 </template>
 
@@ -19,6 +16,7 @@ export default {
 
 
       }
+   
 
 }
 </script>
