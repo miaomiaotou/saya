@@ -14,7 +14,7 @@
       <a-layout-content style="margin: 0 16px">
         <!-- router-view里是路由匹配过来的组件 -->
       <!-- <update/> -->
-        <Userlayout/>        
+        <!-- <Userlayout/>         -->
       </a-layout-content>
       <a-layout-footer style="text-align: center">
         <Footer/>
@@ -31,7 +31,7 @@ import Footer from"./Footer";
 
 import Header from "./Header";
 
- import update from "../views/User/update";
+import update from "../views/User/update";
  
 import SideMenu from "./SideMenu";
 import Userlayout from "./Userlayout";
