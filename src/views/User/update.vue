@@ -2,14 +2,17 @@
   <div >
    <!-- <Baselayout></Baselayout> -->
      <a-upload
-    action="https://up-z2.qiniup.com"
+   
     :multiple="false"
     :default-file-list="defaultFileList"
+    :customRequest="customRequest"
     @change="handleChange"
   >
     <a-button> <a-icon type="upload" /> Upload </a-button>
   </a-upload>
-    
+      <!-- <a-button @click="customRequest"> commit </a-button> -->
+
+<!-- :customRequest="customRequest" -->
      <router-view></router-view>
      
   </div>
@@ -38,14 +41,15 @@ export default {
       ],
        qiniuData: {
         key: "",
-        token: ""
+        token: "123"
       },
       
     };
     
   },
   created() {
-    this.getQiniuToken();
+    // this.getQiniuToken();
+    this.gettoken(); 
   },
   methods: {
     handleChange(info) {
@@ -65,25 +69,61 @@ export default {
       // });
       this.fileList = fileList;
     },
-    
-     getQiniuToken: function() {
-      const _this = this;
-      this.$axios
-        .post('http://yoursite.com/qiniu/uploadToken')
-        .then(function(res) {
-          console.log(res);
-          if (res.data.success) {
-            _this.qiniuData.token = res.data.result;
-          } else {
-            _this.$message({
-              message: res.data.info,
-              duration: 2000,
-              type: "warning"
-            });
-          }
-        });
-        // this.axios.defaults.withCredentials = true;
+    gettoken:function(){
+       this.$axios
+       .get('http://saya.signalping.com/webapi/storage/token')
+       .then((res)=>{
+          console.log(res)
+          this.qiniuData.token = res.data.error_code
+          console.log(res.data.error_code)
+         }
 
+       )
+    },
+  
+    //  getQiniuToken: function() {
+    //   const _this = this;
+    //   this.$axios
+    //     .post('http://yoursite.com/qiniu/uploadToken')
+    //     .then(function(res) {
+    //       console.log(res);
+    //       if (res.data.success) {
+    //         _this.qiniuData.token = res.data.result;
+    //       } else {
+    //         _this.$message({
+    //           message: res.data.info,
+    //           duration: 2000,
+    //           type: "warning"
+    //         });
+    //       }
+    //     });
+    //     // this.axios.defaults.withCredentials = true;
+
+    // },
+    customRequest (data) {
+      const formData = new FormData()
+      formData.append('file', data.file)
+      formData.append('token',data.qiniuData.token)
+      this.saveFile(formData)
+    },
+    saveFile (formData) {
+      this.form.validateFields((err, values) => {
+      if (!err) {
+        let that = this
+        this.axios(
+        {
+          method: 'post',
+          url: 'https://up-z1.qiniup.com',
+          data: formData
+        })
+        .then((response) => {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+        }
+      })
     },
   
 
