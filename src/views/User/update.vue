@@ -109,13 +109,14 @@ export default {
     saveFile (formData) {
       this.form.validateFields((err, values) => {
       if (!err) {
-        let that = this
+        let _this  = this
         this.axios(
         {
           method: 'post',
           url: 'https://up-z1.qiniup.com',
-          data: formData
+          data: this.formData
         })
+        
         .then((response) => {
           console.log(response)
         })
